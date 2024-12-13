@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Park Adventure</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5dc;
+      color: #2e4a23;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #2b6b2e;
+    }
+    .hidden {
+      display: none;
+    }
+    .visible {
+      display: block;
+    }
+    .button {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 10px 15px;
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #3e8e41;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    .forest-badge {
+      background-color: #7c2d0d;
+      color: white;
+    }
+    .lake-badge {
+      background-color: #2196f3;
+      color: white;
+    }
+    .mountain-badge {
+      background-color: #f44336;
+      color: white;
+    }
+    .desert-badge {
+      background-color: #ff9800;
+      color: white;
+    }
+    .ranger-badge {
+      background-color: #9c27b0;
+      color: white;
+    }
+    .badges {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to National Adventure Park</h1>
+  <p>You’re at the park entrance. What would you like to do?</p>
+
+  <!-- Main Choices -->
+  <a href="#forest" class="button">Explore the Forest</a>
+  <a href="#lake" class="button">Visit the Lake</a>
+  <a href="#mountain" class="button">Climb the Mountain</a>
+  <a href="#desert" class="button">Venture into the Desert</a>
+  <a href="#ranger-station" class="button">Stop at the Ranger Station</a>
+
+  <!-- Badge Display Section -->
+  <div class="badges">
+    <h3>Your Badges:</h3>
+    <div id="badge-display"></div>
+  </div>
+
+  <!-- Forest Path -->
+  <div id="forest" class="hidden">
+    <h2>The Forest</h2>
+    <p>You’re surrounded by tall trees and hear rustling nearby. What do you do?</p>
+    <a href="#forest-animal" class="button">Investigate the Noise</a>
+    <a href="#forest-path" class="button">Follow a Hidden Path</a>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="forest-animal" class="hidden">
+    <h2>A Deer Appears</h2>
+    <p>You spot a deer grazing peacefully. It’s a beautiful sight!</p>
+    <button class="button" onclick="collectBadge('forest-animal')">Collect Deer Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="forest-path" class="hidden">
+    <h2>A Hidden Waterfall</h2>
+    <p>You find a hidden waterfall, its crystal-clear waters shimmering in the sunlight.</p>
+    <button class="button" onclick="collectBadge('forest-path')">Collect Waterfall Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <!-- Lake Path -->
+  <div id="lake" class="hidden">
+    <h2>The Lake</h2>
+    <p>The lake sparkles in the sunlight. What do you do?</p>
+    <a href="#lake-fish" class="button">Go Fishing</a>
+    <a href="#lake-swim" class="button">Go for a Swim</a>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="lake-fish" class="hidden">
+    <h2>Catch of the Day</h2>
+    <p>You catch a fish and release it back into the water. Great job!</p>
+    <button class="button" onclick="collectBadge('lake-fish')">Collect Fisher Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="lake-swim" class="hidden">
+    <h2>A Refreshing Swim</h2>
+    <p>You take a refreshing swim and feel rejuvenated.</p>
+    <button class="button" onclick="collectBadge('lake-swim')">Collect Swimmer Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <!-- Mountain Path -->
+  <div id="mountain" class="hidden">
+    <h2>The Mountain</h2>
+    <p>You start climbing the mountain. Partway up, there’s a fork in the path. Which way?</p>
+    <a href="#mountain-cave" class="button">Explore a Cave</a>
+    <a href="#mountain-peak" class="button">Reach the Peak</a>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="mountain-cave" class="hidden">
+    <h2>A Hidden Cave</h2>
+    <p>You discover ancient carvings inside the cave. What a find!</p>
+    <button class="button" onclick="collectBadge('mountain-cave')">Collect Cave Explorer Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="mountain-peak" class="hidden">
+    <h2>The Mountain Peak</h2>
+    <p>You reach the summit and see a breathtaking view of the park.</p>
+    <button class="button" onclick="collectBadge('mountain-peak')">Collect Peak Explorer Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <!-- Desert Path -->
+  <div id="desert" class="hidden">
+    <h2>The Desert</h2>
+    <p>You wander into the arid desert. What catches your eye?</p>
+    <a href="#desert-oasis" class="button">Investigate an Oasis</a>
+    <a href="#desert-dunes" class="button">Climb the Sand Dunes</a>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="desert-oasis" class="hidden">
+    <h2>An Oasis</h2>
+    <p>You find a small oasis surrounded by palm trees and cool water. A rare sight!</p>
+    <button class="button" onclick="collectBadge('desert-oasis')">Collect Oasis Explorer Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="desert-dunes" class="hidden">
+    <h2>The Sand Dunes</h2>
+    <p>You climb the dunes and see the vast beauty of the desert stretching before you.</p>
+    <button class="button" onclick="collectBadge('desert-dunes')">Collect Dune Climber Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <!-- Ranger Station Path -->
+  <div id="ranger-station" class="hidden">
+    <h2>The Ranger Station</h2>
+    <p>You stop by the ranger station. The ranger has tasks for you. Which will you choose?</p>
+    <a href="#ranger-cleanup" class="button">Help Clean the Trails</a>
+    <a href="#ranger-guide" class="button">Assist with a Guided Tour</a>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="ranger-cleanup" class="hidden">
+    <h2>Trail Cleanup</h2>
+    <p>You help pick up litter along the trails, making the park cleaner for everyone.</p>
+    <button class="button" onclick="collectBadge('ranger-cleanup')">Collect Cleanup Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <div id="ranger-guide" class="hidden">
+    <h2>Guided Tour</h2>
+    <p>You assist a ranger in leading a group of visitors and share interesting facts about the park.</p>
+    <button class="button" onclick="collectBadge('ranger-guide')">Collect Tour Guide Badge</button>
+    <a href="#start" class="button">Return to Entrance</a>
+  </div>
+
+  <!-- JavaScript-Free Navigation -->
+  <script>
+    const badges = [];
+
+    function collectBadge(path) {
+      // Define badge names with unique colors
+      const badgeNames = {
+        'forest-animal': 'Deer Explorer',
+        'forest-path': 'Waterfall Explorer',
+        'lake-fish': 'Fisher Explorer',
+        'lake-swim': 'Swimmer Explorer',
+        'mountain-cave': 'Cave Explorer',
+        'mountain-peak': 'Peak Explorer',
+        'desert-oasis': 'Oasis Explorer',
+        'desert-dunes': 'Dune Climber',
+        'ranger-cleanup': 'Cleanup Helper',
+        'ranger-guide': 'Tour Guide'
+      };
+
+      // Add badge to collection if not already awarded
+      if (!badges.includes(badgeNames[path])) {
+        badges.push(badgeNames[path]);
+        updateBadgeDisplay();
+      }
+    }
+
+    function updateBadgeDisplay() {
+      const badgeDisplay = document.getElementById('badge-display');
+      badgeDisplay.innerHTML = badges.map(badge => {
+        // Apply unique badge color classes
+        if (badge === 'Deer Explorer') {
+          return `<span class="badge forest-badge">${badge}</span>`;
+        } else if (badge === 'Waterfall Explorer') {
+          return `<span class="badge forest-badge">${badge}</span>`;
+        } else if (badge === 'Fisher Explorer') {
+          return `<span class="badge lake-badge">${badge}</span>`;
+        } else if (badge === 'Swimmer Explorer') {
+          return `<span class="badge lake-badge">${badge}</span>`;
+        } else if (badge === 'Cave Explorer') {
+          return `<span class="badge mountain-badge">${badge}</span>`;
+        } else if (badge === 'Peak Explorer') {
+          return `<span class="badge mountain-badge">${badge}</span>`;x
+        } else if (badge === 'Oasis Explorer') {
+          return `<span class="badge desert-badge">${badge}</span>`;
+        } else if (badge === 'Dune Climber') {
+          return `<span class="badge desert-badge">${badge}</span>`;
+        } else if (badge === 'Cleanup Helper') {
+          return `<span class="badge ranger-badge">${badge}</span>`;
+        } else if (badge === 'Tour Guide') {
+          return `<span class="badge ranger-badge">${badge}</span>`;
+        }
+      }).join('');
+    }
+
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelectorAll('.hidden').forEach(section => section.classList.remove('visible'));
+        const target = document.querySelector(this.getAttribute('href'));
+        target.classList.add('visible');
+      });
+    });
+
+    // Initialize first screen
+    document.getElementById('start').classList.add('visible');
+  </script>
+</body>
+</html>
